@@ -5,6 +5,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { Form, Input, Button, Rating } from "semantic-ui-react";
 import MovieItem2 from "./MovieItem2";
+import { Link } from "react-router-dom";
 
 function MoviesList({ movies, search, rating, setMovies }) {
   const [newMovie, SetNewMovie] = useState({});
@@ -119,19 +120,22 @@ function MoviesList({ movies, search, rating, setMovies }) {
           .filter((movie) => (rating ? movie.rating === rating : movie))
           .toReversed()
           .map((movie) => (
-            <MovieItem {...movie} />
+            <MovieItem {...movie} key={movie.id} />
           ))}
       </div>
-      <div className="topromance">
+      {/* <div className="topromance">
         <h1>Top romance movies: </h1>
         <Splide options={options} aria-label="My Favorite Images">
           {data.map((movie) => (
+            <Link  key={movie.id} to={`movies/${movie.id}`}>
+              <MovieItem props={movie} key={movie.id} />
+            </Link>
+          ))}
             <SplideSlide>
               <MovieItem2 {...movie} />
             </SplideSlide>
-          ))}
         </Splide>
-      </div>
+      </div> */}
     </div>
   );
 }

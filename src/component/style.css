@@ -83,3 +83,11 @@ h1 {
 .topromance {
   margin-top: 20px;
 }
+button {
+  background-color: black;
+  color: white;
+  padding: 15px 15px;
+  margin: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
